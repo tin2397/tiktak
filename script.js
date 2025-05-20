@@ -16,23 +16,17 @@ const gameboard = [
     [0, 0, 0]
 ];
 
-playerXsign.addEventListener('click', () => {
-    currentPlayer = 'X'; 
-    firstPlayerSign = 'X';
+function handlePlayerSign(sign) {
+    currentPlayer = sign;
+    firstPlayerSign = sign;
     document.querySelector('.player-name').hidden = true;
     document.querySelector('.container').hidden = false;
     statusDisplay.textContent = `${player1name.value}'s turn`;
-    statusDisplay.classList.add(currentPlayer.toLowerCase() + '-turn');
-});
+    statusDisplay.classList.add(sign.toLowerCase() + '-turn');
+}
 
-playerOsign.addEventListener('click', () => {
-    currentPlayer = 'O'; 
-    firstPlayerSign = 'O';
-    document.querySelector('.player-name').hidden = true;
-    document.querySelector('.container').hidden = false;
-    statusDisplay.textContent = `${player1name.value}'s turn`;
-    statusDisplay.classList.add(currentPlayer.toLowerCase() + '-turn');
-});
+playerXsign.addEventListener('click', () => handlePlayerSign('X'));
+playerOsign.addEventListener('click', () => handlePlayerSign('O'));
 
 function handleCellClick(e) {
     const cell = e.target;
