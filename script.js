@@ -1,7 +1,11 @@
-const gameBoard = document.querySelector('.game-board');
 const cells = document.querySelectorAll('[data-cell]');
-const status = document.getElementById('status');
 const restartButton = document.getElementById('restartButton');
+const player1name = document.getElementById('player1');
+const player2name = document.getElementById('player2');
+const playerXsign = document.getElementById('player-X');
+const playerOsign = document.getElementById('player-O');
+let playerName = '';
+let firstPlayerSign = 'X';
 let currentPlayer = 'X';
 let gameActive = true;
 
@@ -11,6 +15,24 @@ const gameboard = [
     [0, 0, 0],
     [0, 0, 0]
 ];
+
+playerXsign.addEventListener('click', () => {
+    currentPlayer = 'X'; 
+    firstPlayerSign = 'X';
+    document.querySelector('.player-name').hidden = true;
+    document.querySelector('.container').hidden = false;
+    statusDisplay.textContent = `${player1name.value}'s turn`;
+    statusDisplay.classList.add(currentPlayer.toLowerCase() + '-turn');
+});
+
+playerOsign.addEventListener('click', () => {
+    currentPlayer = 'O'; 
+    firstPlayerSign = 'O';
+    document.querySelector('.player-name').hidden = true;
+    document.querySelector('.container').hidden = false;
+    statusDisplay.textContent = `${player1name.value}'s turn`;
+    statusDisplay.classList.add(currentPlayer.toLowerCase() + '-turn');
+});
 
 function handleCellClick(e) {
     const cell = e.target;
@@ -31,7 +53,7 @@ function handleCellClick(e) {
 
     if (checkWin()) {
         gameActive = false;
-        statusDisplay .textContent = `Player ${currentPlayer} wins!`;
+        statusDisplay .textContent = `${currentPlayer} wins!`;
         return;
     }
 
@@ -42,7 +64,14 @@ function handleCellClick(e) {
     }
 
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    statusDisplay .textContent = `Player ${currentPlayer}'s turn`;
+    if (currentPlayer === firstPlayerSign) {
+        playerName = player1name.value;
+    } else {
+        playerName = player2name.value;
+    }
+    statusDisplay.textContent = `${playerName}'s turn`;
+    statusDisplay.className = 'statusDisplay';  // Reset classes
+    statusDisplay.classList.add(currentPlayer.toLowerCase() + '-turn');  // Add new class
 }
 
 
@@ -84,9 +113,9 @@ function restartGame() {
         }
     }
     
-    currentPlayer = 'X';
+    currentPlayer = firstPlayerSign;
     gameActive = true;
-    statusDisplay .textContent = `Player ${currentPlayer}'s turn`;
+    statusDisplay.textContent = `${player1name.value}'s turn`;
     
     // Clear UI
     cells.forEach(cell => {

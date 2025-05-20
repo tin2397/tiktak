@@ -34,6 +34,7 @@ h1 {
 
 .game-board {
     display: grid;
+    padding-top: 10px;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-bottom: 1.5rem;
@@ -79,4 +80,90 @@ h1 {
 
 #restartButton:hover {
     background-color: #45a049;
+}
+
+.player-name {
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+}
+
+.player-box {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 2px solid #dee2e6;
+}
+
+.player-box h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.player-box input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+}
+
+.player-box input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.player-sign {
+    margin: 0 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#player-X {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#player-O {
+    background-color: #3498db;
+    color: white;
+}
+
+.player-sign:hover {
+    transform: scale(1.05);
+}
+
+#player-X:hover {
+    background-color: #c0392b;
+}
+
+#player-O:hover {
+    background-color: #2980b9;
+}
+
+.statusDisplay {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.statusDisplay.x-turn {
+    color: #e74c3c;  /* Red for X */
+}
+
+.statusDisplay.o-turn {
+    color: #3498db;  /* Blue for O */
 }

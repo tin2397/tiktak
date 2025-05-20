@@ -7,9 +7,23 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div class="container">
+    <div class="player-name">
         <h1>Tic Tac Toe</h1>
-        <div id="statusDisplay" class="statusDisplay">Player X's turn</div>
+        <div class="player-box">
+            <h3>Player 1 Enter your name</h3>
+            <input type="text" id="player1" placeholder="Enter your name" required>
+        </div>
+        <div class="player-box">
+            <h3>Player 2 Enter your name</h3>
+            <input type="text" id="player2" placeholder="Enter your name" required>
+        </div>
+        <h3>Select your sign</h3>
+        <button id="player-X" class="player-sign">X</button>
+        <button id="player-O" class="player-sign">O</button>
+    </div>
+    <div class="container" hidden>
+        <h1>Tic Tac Toe</h1>
+        <div id="statusDisplay" class="statusDisplay"></div>
         <div class="game-board">
             <div class="cell" data-cell></div>
             <div class="cell" data-cell></div>
