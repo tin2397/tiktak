@@ -1,9 +1,10 @@
-const cells = document.querySelectorAll('[data-cell]');
+const cells = document.querySelectorAll('.cell');
 const restartButton = document.getElementById('restartButton');
 const player1name = document.getElementById('player1');
 const player2name = document.getElementById('player2');
 const playerXsign = document.getElementById('player-X');
 const playerOsign = document.getElementById('player-O');
+const statusDisplay = document.querySelector('.statusDisplay');
 let playerName = '';
 let firstPlayerSign = 'X';
 let currentPlayer = 'X';
@@ -15,6 +16,8 @@ const gameboard = [
     [0, 0, 0],
     [0, 0, 0]
 ];
+
+
 
 function handlePlayerSign(sign) {
     currentPlayer = sign;
@@ -47,7 +50,7 @@ function handleCellClick(e) {
 
     if (checkWin()) {
         gameActive = false;
-        statusDisplay .textContent = `${currentPlayer} wins!`;
+        statusDisplay .textContent = `${playerName} wins!`;
         return;
     }
 
