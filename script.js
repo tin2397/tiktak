@@ -113,6 +113,7 @@ function restartGame() {
     currentPlayer = firstPlayerSign;
     gameActive = true;
     statusDisplay.textContent = `${player1name.value}'s turn`;
+    statusDisplay.classList.add(currentPlayer.toLowerCase() + '-turn');
     
     // Clear UI
     cells.forEach(cell => {
